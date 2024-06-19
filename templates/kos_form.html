@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Kos Form{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div>{{ form.name.label }} {{ form.name }}</div>
+    <div>{{ form.address.label }} {{ form.address }}</div>
+    <div>{{ form.price.label }} {{ form.price }}</div>
+    <div>{{ form.description.label }} {{ form.description }}</div>
+    <div>{{ form.submit }}</div>
+</form>
+{% endblock %}

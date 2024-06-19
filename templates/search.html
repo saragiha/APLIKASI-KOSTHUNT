@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Search Kos{% endblock %}
+{% block content %}
+<h1>Search Kos</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for kos in kos_list %}
+            <tr>
+                <td>{{ kos.name }}</td>
+                <td>{{ kos.address }}</td>
+                <td>{{ kos.price }}</td>
+                <td>{{ kos.description }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

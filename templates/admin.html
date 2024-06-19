@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<h1>Admin Panel</h1>
+<form method="POST">
+    <input type="hidden" name="create" value="1">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" required>
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" required>
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" required>
+    <button type="submit">Create Kos</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for kos in kos_list %}
+            <tr>
+                <form method="POST">
+                    <td><input type="text" name="name" value="{{ kos.name }}"></td>
+                    <td><input type="text" name="address" value="{{ kos.address }}"></td>
+                    <td><input type="text" name="price" value="{{ kos.price }}"></td>
+                    <td><input type="text" name="description" value="{{ kos.description }}"></td>
+                    <td>
+                        <input type="hidden" name="id" value="{{ kos.id }}">
+                        <button type="submit" name="update" value="1">Update</button>
+                        <button type="submit" name="delete" value="1">Delete</button>
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

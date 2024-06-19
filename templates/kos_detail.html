@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ kos.name }}{% endblock %}
+{% block content %}
+<h1>{{ kos.name }}</h1>
+<p>{{ kos.address }}</p>
+<p>{{ kos.price }}</p>
+<p>{{ kos.description }}</p>
+{% if current_user.is_authenticated and current_user.id == kos.user_id %}
+    <a href="{{ url_for('update_kos', kos_id=kos.id) }}">Edit</a>
+    <form method="POST" action="{{ url_for('delete_kos', kos_id=kos.id) }}" style="display:inline;">
+        <button type="submit">Delete</button>
+    </form>
+{% endif %}
+{% endblock %}

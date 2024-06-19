@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Kos List{% endblock %}
+{% block content %}
+<h1>List of Kos</h1>
+{% for kos in kos_list %}
+    <div>
+        <h2><a href="{{ url_for('kos_detail', kos_id=kos.id) }}">{{ kos.name }}</a></h2>
+        <p>{{ kos.address }}</p>
+        <p>{{ kos.price }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
